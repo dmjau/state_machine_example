@@ -5,21 +5,30 @@ import ui.FooterStateComponent
 
 class FooterViewModel {
 
-    var finiteStateMachine: FiniteStateMachine? = null
-    var initialState: String? = null
+    var footerFSM: FiniteStateMachine? = null
+    var footerInitialState: String? = null
 
-    fun createFSM(initState: String?){
-        initialState = initState
-        finiteStateMachine = FiniteStateMachine(initialState)
-        runStateMachine()
+    fun createFooterFSM(initialState: String?){
+
+        setInitialFooterState(initialState)
+
+        footerFSM = createFooterFSM()
+
+        runFooterFSM()
     }
 
-    private fun runStateMachine(){
-        finiteStateMachine?.registerStateComponent(FooterStateComponent())
-        finiteStateMachine?.initState()
+    private fun setInitialFooterState(initState: String?){
+        footerInitialState = initState
     }
 
-    fun runToNextState(){
-        finiteStateMachine?.setNextState()
+    private fun createFooterFSM() = FiniteStateMachine(footerInitialState)
+
+    private fun runFooterFSM(){
+        footerFSM?.registerStateComponent(FooterStateComponent())
+        footerFSM?.initState()
+    }
+
+    fun runFooterNextState(){
+        footerFSM?.setNextState()
     }
 }

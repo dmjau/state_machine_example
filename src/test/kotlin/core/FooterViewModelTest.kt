@@ -13,9 +13,9 @@ class FooterViewModelTest {
         val footerViewModel = FooterViewModel()
         val initState = "collapsed"
 
-        footerViewModel.createFSM(initState)
+        footerViewModel.createFooterFSM(initState)
 
-        assertEquals("collapsed", footerViewModel.initialState)
+        assertEquals("collapsed", footerViewModel.footerInitialState)
     }
 
     @Test
@@ -23,17 +23,17 @@ class FooterViewModelTest {
         val footerViewModel = FooterViewModel()
         val initState = "collapsed"
 
-        footerViewModel.createFSM(initState)
+        footerViewModel.createFooterFSM(initState)
 
         // check init parameters
-        assertEquals("collapsed", footerViewModel.initialState)
-        assertTrue(footerViewModel.finiteStateMachine?.currentState is OnCollapsedState)
+        assertEquals("collapsed", footerViewModel.footerInitialState)
+        assertTrue(footerViewModel.footerFSM?.currentState is OnCollapsedState)
 
         // set next state
-        footerViewModel.runToNextState()
+        footerViewModel.runFooterNextState()
 
         // check next state
-        assertEquals("collapsed", footerViewModel.initialState)
-        assertTrue(footerViewModel.finiteStateMachine?.currentState is OnExpandedState)
+        assertEquals("collapsed", footerViewModel.footerInitialState)
+        assertTrue(footerViewModel.footerFSM?.currentState is OnExpandedState)
     }
 }
