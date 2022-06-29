@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="core.ActivityManageStateTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-06-29T18:42:36" hostname="AR0C02F61YQML85" time="0.023">
+  <properties/>
+  <testcase name="Set initial state OK()" classname="core.ActivityManageStateTest" time="0.02"/>
+  <testcase name="Set next state OK()" classname="core.ActivityManageStateTest" time="0.002"/>
+  <system-out><![CDATA[Footer -> state: collapsed
+Footer -> state: collapsed
+Footer -> state: expanded
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
