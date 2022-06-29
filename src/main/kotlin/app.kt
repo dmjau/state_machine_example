@@ -1,13 +1,15 @@
-import core.ActivityView
+import viewmodel.FooterViewModel
 
 fun main(){
+
+    /**
+     * States.
+     */
     val initStateCollapsed = "collapsed"
     val initStateExpanded = "expanded"
-    val activityView = ActivityView()
 
+    val footerViewModel = FooterViewModel()
 
-    activityView.initStateMachine(initStateExpanded)
-
-    activityView.runNextState()
+    footerViewModel.createFSM(initStateExpanded)
+    footerViewModel.runToNextState()
 }
-

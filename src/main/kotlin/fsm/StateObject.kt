@@ -1,4 +1,4 @@
-package states
+package fsm
 
 interface StateObject {
     fun nextState() : StateObject

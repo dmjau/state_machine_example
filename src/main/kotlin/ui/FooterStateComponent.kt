@@ -1,21 +1,21 @@
 package ui
 
-import states.StateComponent
+import fsm.StateComponent
 
 class FooterStateComponent : StateComponent {
     override fun onCollapseState() {
-        println("Footer -> state: collapsed")
+        println("Footer -> current state: collapsed")
     }
 
     override fun onExpandedState() {
-        println("Footer -> state: expanded")
+        println("Footer -> current state: expanded")
     }
 
     override fun onHideState() {
-        println("Footer -> state: hide")
+        println("Footer -> current state: hide")
     }
 
     override fun onShowState() {
-        println("Footer -> state: show")
+        println("Footer -> current state: show")
     }
 }

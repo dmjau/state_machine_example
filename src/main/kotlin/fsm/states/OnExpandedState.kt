@@ -1,13 +1,16 @@
-package states
+package fsm.states
 
-class OnCollapsedState  : StateObject {
+import fsm.StateComponent
+import fsm.StateObject
+
+class OnExpandedState : StateObject {
     override fun nextState(): StateObject {
-        return OnExpandedState()
+        return OnCollapsedState()
     }
 
     override fun executeState(listStatesComponents: MutableList<StateComponent>) {
         listStatesComponents.forEach {
-            it.onCollapseState()
+            it.onExpandedState()
         }
     }
 }
