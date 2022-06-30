@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 class HeaderViewModelTest {
 
     @Test
-    fun `Test HeaderViewModel create FSM OK`(){
+    fun `Test HeaderViewModel create FSM OK`() {
         // given
         val initState = "show"
         val headerViewModel = HeaderViewModel(initState)
@@ -21,7 +21,7 @@ class HeaderViewModelTest {
     }
 
     @Test
-    fun `Test HeaderViewModel set init state OK`(){
+    fun `Test HeaderViewModel set init state OK`() {
         // given
         val initState = "show"
         val headerViewModel = HeaderViewModel(initState)
@@ -34,7 +34,7 @@ class HeaderViewModelTest {
     }
 
     @Test
-    fun `Test when HeaderViewModel call next state OK`(){
+    fun `Test when HeaderViewModel call next state OK`() {
         // given
         val initState = "show"
         val headerViewModel = HeaderViewModel(initState)

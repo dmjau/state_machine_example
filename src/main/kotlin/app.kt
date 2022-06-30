@@ -1,7 +1,7 @@
 import viewmodels.FooterViewModel
 import viewmodels.HeaderViewModel
 
-fun main(){
+fun main() {
 
     /**
      * States.
@@ -11,14 +11,8 @@ fun main(){
     val initStateShow = "show"
     val initStateHide = "hide"
 
-    val footerViewModel = FooterViewModel(initStateExpanded)
-    val headerViewModel = HeaderViewModel(initStateShow)
+    val footerViewModel = FooterViewModel(initStateExpanded, initStateHide)
 
     footerViewModel.bind()
     footerViewModel.onClickEvent()
-
-    headerViewModel.bind()
-    headerViewModel.onClickEvent()
-    headerViewModel.onClickEvent()
-    headerViewModel.onClickEvent()
 }

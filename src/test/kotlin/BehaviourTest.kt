@@ -7,7 +7,7 @@ import kotlin.test.assertEquals
 class BehaviourTest {
 
     @Test
-    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW`(){
+    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW`() {
 
         // given
         val initState = "show"
@@ -23,7 +23,7 @@ class BehaviourTest {
     }
 
     @Test
-    fun `Test printLn in the HeaderStateComponent when initial state header is HIDE`(){
+    fun `Test printLn in the HeaderStateComponent when initial state header is HIDE`() {
 
         // given
         val initState = "hide"
@@ -39,7 +39,7 @@ class BehaviourTest {
     }
 
     @Test
-    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE`(){
+    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE`() {
 
         // given
         val initState = "show"
@@ -63,7 +63,7 @@ class BehaviourTest {
     }
 
     @Test
-    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE and change again to SHOW`(){
+    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE and change again to SHOW`() {
 
         // given
         val initState = "show"
@@ -100,11 +100,12 @@ class BehaviourTest {
     }
 
     @Test
-    fun `Test printLn in the FooterStateComponent when initial state header is COLLAPSED`(){
+    fun `Test printLn in the FooterStateComponent when initial state header is COLLAPSED`() {
 
         // given
         val initState = "collapsed"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "hide"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         val output = tapSystemOut {
             // when
@@ -112,15 +113,20 @@ class BehaviourTest {
         }
 
         // then
-        assertEquals("Footer -> current state: COLLAPSED", output.trim())
+        assertEquals(
+            "Footer -> current state: COLLAPSED" +
+                    "Header -> current state: HIDE", output.trim()
+        )
+
     }
 
     @Test
-    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED`(){
+    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED`() {
 
         // given
         val initState = "expanded"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "show"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         val output = tapSystemOut {
             // when
@@ -132,11 +138,12 @@ class BehaviourTest {
     }
 
     @Test
-    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED`(){
+    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED`() {
 
         // given
         val initState = "expanded"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "show"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         var output = tapSystemOut {
             footerViewModel.bind()
@@ -156,11 +163,12 @@ class BehaviourTest {
     }
 
     @Test
-    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED and change again to EXPANDED`(){
+    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED and change again to EXPANDED`() {
 
         // given
         val initState = "expanded"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "show"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         var output = tapSystemOut {
             footerViewModel.bind()

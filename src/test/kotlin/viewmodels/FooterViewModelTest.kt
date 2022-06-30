@@ -8,10 +8,11 @@ import fsm.states.OnExpandedState
 class FooterViewModelTest {
 
     @Test
-    fun `Test FooterViewModel create FSM OK`(){
+    fun `Test FooterViewModel create FSM OK`() {
         // given
         val initState = "collapsed"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "hide"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         // when
         footerViewModel.bind()
@@ -21,10 +22,11 @@ class FooterViewModelTest {
     }
 
     @Test
-    fun `Test FooterViewModel set init state OK`(){
+    fun `Test FooterViewModel set init state OK`() {
         // given
         val initState = "collapsed"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "hide"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         // when
         footerViewModel.bind()
@@ -34,10 +36,11 @@ class FooterViewModelTest {
     }
 
     @Test
-    fun `Test when FooterViewModel call next state OK`(){
+    fun `Test when FooterViewModel call next state OK`() {
         // given
         val initState = "collapsed"
-        val footerViewModel = FooterViewModel(initState)
+        val initStateDependantComponent = "hide"
+        val footerViewModel = FooterViewModel(initState, initStateDependantComponent)
 
         footerViewModel.bind()
 
