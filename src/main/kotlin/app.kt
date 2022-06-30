@@ -19,4 +19,6 @@ fun main(){
 
     headerViewModel.bind()
     headerViewModel.onClickEvent()
+    headerViewModel.onClickEvent()
+    headerViewModel.onClickEvent()
 }
