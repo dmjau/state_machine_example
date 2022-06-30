@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BehaviourTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-06-30T19:36:19" hostname="AR0C02F61YQML85" time="0.053">
+<testsuite name="BehaviourTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-06-30T21:19:35" hostname="AR0C02F61YQML85" time="0.053">
   <properties/>
-  <testcase name="Test printLn in the HeaderStateComponent when initial state header is HIDE()" classname="BehaviourTest" time="0.04"/>
+  <testcase name="Test printLn in the HeaderStateComponent when initial state header is HIDE()" classname="BehaviourTest" time="0.039"/>
   <testcase name="Test printLn in the HeaderStateComponent when initial state header is SHOW()" classname="BehaviourTest" time="0.001"/>
   <testcase name="Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE()" classname="BehaviourTest" time="0.001"/>
-  <testcase name="Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED()" classname="BehaviourTest" time="0.002"/>
+  <testcase name="Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED()" classname="BehaviourTest" time="0.003"/>
   <testcase name="Test printLn in the FooterStateComponent when initial state header is EXPANDED()" classname="BehaviourTest" time="0.001"/>
   <testcase name="Test printLn in the FooterStateComponent when initial state header is COLLAPSED()" classname="BehaviourTest" time="0.001"/>
   <testcase name="Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED and change again to EXPANDED()" classname="BehaviourTest" time="0.001"/>
-  <testcase name="Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE and change again to SHOW()" classname="BehaviourTest" time="0.002"/>
+  <testcase name="Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE and change again to SHOW()" classname="BehaviourTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
