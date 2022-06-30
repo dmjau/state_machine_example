@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="core.FooterViewModelTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-29T23:04:36" hostname="AR0C02F61YQML85" time="0.017">
-  <properties/>
-  <testcase name="Set initial state OK()" classname="core.FooterViewModelTest" time="0.017"/>
-  <system-out><![CDATA[Footer -> current state: collapsed
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

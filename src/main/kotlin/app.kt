@@ -1,5 +1,5 @@
-import viewmodel.FooterViewModel
-import viewmodel.HeaderViewModel
+import viewmodels.FooterViewModel
+import viewmodels.HeaderViewModel
 
 fun main(){
 

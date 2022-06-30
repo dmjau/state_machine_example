@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="BehaviourTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-30T00:27:05" hostname="AR0C02F61YQML85" time="0.036">
+  <properties/>
+  <testcase name="Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE()" classname="BehaviourTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

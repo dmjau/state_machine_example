@@ -1,4 +1,4 @@
-package viewmodel
+package viewmodels
 
 import fsm.FiniteStateMachine
 import ui.FooterStateComponent
