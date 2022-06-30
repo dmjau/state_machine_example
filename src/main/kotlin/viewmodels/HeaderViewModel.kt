@@ -3,32 +3,32 @@ package viewmodels
 import fsm.FiniteStateMachine
 import ui.HeaderStateComponent
 
-class HeaderViewModel {
+class HeaderViewModel(private val initialState: String?) {
 
     var headerFSM: FiniteStateMachine? = null
     var headerInitialState: String? = null
 
-    fun createHeaderFSM(initialState: String?){
+    fun bind(){
 
-        setInitialHeaderState(initialState)
+        setInitialState(initialState)
 
-        headerFSM = createHeaderFSM()
+        headerFSM = createFSM()
 
-        runHeaderFSM()
+        runFSM()
     }
 
-    private fun setInitialHeaderState(initState: String?){
+    private fun setInitialState(initState: String?){
         headerInitialState = initState
     }
 
-    private fun createHeaderFSM() = FiniteStateMachine(headerInitialState)
+    private fun createFSM() = FiniteStateMachine(headerInitialState)
 
-    private fun runHeaderFSM(){
+    private fun runFSM(){
         headerFSM?.registerStateComponent(HeaderStateComponent())
         headerFSM?.initState()
     }
 
-    fun runHeaderNextState(){
+    fun onClickEvent(){
         headerFSM?.setNextState()
     }
 }

@@ -3,32 +3,32 @@ package viewmodels
 import fsm.FiniteStateMachine
 import ui.FooterStateComponent
 
-class FooterViewModel {
+class FooterViewModel(private val initialState: String?) {
 
     var footerFSM: FiniteStateMachine? = null
     var footerInitialState: String? = null
 
-    fun createFooterFSM(initialState: String?){
+    fun bind(){
 
-        setInitialFooterState(initialState)
+        setInitialState(initialState)
 
-        footerFSM = createFooterFSM()
+        footerFSM = createFSM()
 
-        runFooterFSM()
+        runFSM()
     }
 
-    private fun setInitialFooterState(initState: String?){
+    private fun setInitialState(initState: String?){
         footerInitialState = initState
     }
 
-    private fun createFooterFSM() = FiniteStateMachine(footerInitialState)
+    private fun createFSM() = FiniteStateMachine(footerInitialState)
 
-    private fun runFooterFSM(){
+    private fun runFSM(){
         footerFSM?.registerStateComponent(FooterStateComponent())
         footerFSM?.initState()
     }
 
-    fun runFooterNextState(){
+    fun onClickEvent(){
         footerFSM?.setNextState()
     }
 }

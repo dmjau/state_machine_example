@@ -10,111 +10,174 @@ class BehaviourTest {
     fun `Test printLn in the HeaderStateComponent when initial state header is SHOW`(){
 
         // given
-        val headerViewModel = HeaderViewModel()
         val initState = "show"
+        val headerViewModel = HeaderViewModel(initState)
 
         val output = tapSystemOut {
             // when
-            headerViewModel.createHeaderFSM(initState)
+            headerViewModel.bind()
         }
 
         // then
-        assertEquals("Header -> current state: show", output.trim())
+        assertEquals("Header -> current state: SHOW", output.trim())
     }
 
     @Test
     fun `Test printLn in the HeaderStateComponent when initial state header is HIDE`(){
 
         // given
-        val headerViewModel = HeaderViewModel()
         val initState = "hide"
+        val headerViewModel = HeaderViewModel(initState)
 
         val output = tapSystemOut {
             // when
-            headerViewModel.createHeaderFSM(initState)
+            headerViewModel.bind()
         }
 
         // then
-        assertEquals("Header -> current state: hide", output.trim())
+        assertEquals("Header -> current state: HIDE", output.trim())
     }
 
     @Test
     fun `Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE`(){
 
         // given
-        val headerViewModel = HeaderViewModel()
         val initState = "show"
+        val headerViewModel = HeaderViewModel(initState)
 
-        val output = tapSystemOut {
-            headerViewModel.createHeaderFSM(initState)
+        var output = tapSystemOut {
+            headerViewModel.bind()
         }
 
         // check previous call next state
-        assertEquals("Header -> current state: show", output.trim())
+        assertEquals("Header -> current state: SHOW", output.trim())
 
         // when
-        val outputNextState = tapSystemOut {
+        output = tapSystemOut {
             // when
-            headerViewModel.runHeaderNextState()
+            headerViewModel.onClickEvent()
         }
 
         // then
-        assertEquals("Header -> current state: hide", outputNextState.trim())
+        assertEquals("Header -> current state: HIDE", output.trim())
+    }
+
+    @Test
+    fun `Test printLn in the HeaderStateComponent when initial state header is SHOW change to HIDE and change again to SHOW`(){
+
+        // given
+        val initState = "show"
+        val headerViewModel = HeaderViewModel(initState)
+
+        var output = tapSystemOut {
+            headerViewModel.bind()
+        }
+
+        // check initial state view
+        assertEquals("Header -> current state: SHOW", output.trim())
+
+        output = tapSystemOut {
+            // when
+            headerViewModel.onClickEvent()
+        }
+
+        // check first change state
+        assertEquals("Header -> current state: HIDE", output.trim())
+
+        output = tapSystemOut {
+            // when
+            headerViewModel.onClickEvent()
+        }
+
+        // check second change state
+        assertEquals("Header -> current state: SHOW", output.trim())
     }
 
     @Test
     fun `Test printLn in the FooterStateComponent when initial state header is COLLAPSED`(){
 
         // given
-        val footerViewModel = FooterViewModel()
         val initState = "collapsed"
+        val footerViewModel = FooterViewModel(initState)
 
         val output = tapSystemOut {
             // when
-            footerViewModel.createFooterFSM(initState)
+            footerViewModel.bind()
         }
 
         // then
-        assertEquals("Footer -> current state: collapsed", output.trim())
+        assertEquals("Footer -> current state: COLLAPSED", output.trim())
     }
 
     @Test
     fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED`(){
 
         // given
-        val footerViewModel = FooterViewModel()
         val initState = "expanded"
+        val footerViewModel = FooterViewModel(initState)
 
         val output = tapSystemOut {
             // when
-            footerViewModel.createFooterFSM(initState)
+            footerViewModel.bind()
         }
 
         // then
-        assertEquals("Footer -> current state: expanded", output.trim())
+        assertEquals("Footer -> current state: EXPANDED", output.trim())
     }
 
     @Test
     fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED`(){
 
         // given
-        val footerViewModel = FooterViewModel()
         val initState = "expanded"
+        val footerViewModel = FooterViewModel(initState)
 
-        val output = tapSystemOut {
-            footerViewModel.createFooterFSM(initState)
+        var output = tapSystemOut {
+            footerViewModel.bind()
         }
 
         // check previous call next state
-        assertEquals("Footer -> current state: expanded", output.trim())
+        assertEquals("Footer -> current state: EXPANDED", output.trim())
 
         // when
-        val outputNextState = tapSystemOut {
+        output = tapSystemOut {
             // when
-            footerViewModel.runFooterNextState()
+            footerViewModel.onClickEvent()
         }
 
         // then
-        assertEquals("Footer -> current state: collapsed", outputNextState.trim())
+        assertEquals("Footer -> current state: COLLAPSED", output.trim())
+    }
+
+    @Test
+    fun `Test printLn in the FooterStateComponent when initial state header is EXPANDED change to COLLAPSED and change again to EXPANDED`(){
+
+        // given
+        val initState = "expanded"
+        val footerViewModel = FooterViewModel(initState)
+
+        var output = tapSystemOut {
+            footerViewModel.bind()
+
+        }
+
+        // check initial state view
+        assertEquals("Footer -> current state: EXPANDED", output.trim())
+
+        output = tapSystemOut {
+            // when
+            footerViewModel.onClickEvent()
+        }
+
+        // check first change state
+        assertEquals("Footer -> current state: COLLAPSED", output.trim())
+
+        output = tapSystemOut {
+            // when
+            footerViewModel.onClickEvent()
+        }
+
+        // check second change state
+        assertEquals("Footer -> current state: EXPANDED", output.trim())
     }
 }

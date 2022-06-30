@@ -11,12 +11,12 @@ fun main(){
     val initStateShow = "show"
     val initStateHide = "hide"
 
-    val footerViewModel = FooterViewModel()
-    val headerViewModel = HeaderViewModel()
+    val footerViewModel = FooterViewModel(initStateExpanded)
+    val headerViewModel = HeaderViewModel(initStateShow)
 
-    footerViewModel.createFooterFSM(initStateExpanded)
-    footerViewModel.runFooterNextState()
+    footerViewModel.bind()
+    footerViewModel.onClickEvent()
 
-    headerViewModel.createHeaderFSM(initStateShow)
-    headerViewModel.runHeaderNextState()
+    headerViewModel.bind()
+    headerViewModel.onClickEvent()
 }

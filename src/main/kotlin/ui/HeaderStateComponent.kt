@@ -4,18 +4,18 @@ import fsm.StateComponent
 
 class HeaderStateComponent : StateComponent {
     override fun onCollapseState() {
-        println("Header -> current state: collapsed")
+        println("Header -> current state: COLLAPSED")
     }
 
     override fun onExpandedState() {
-        println("Header -> current state: expanded")
+        println("Header -> current state: EXPANDED")
     }
 
     override fun onHideState() {
-        println("Header -> current state: hide")
+        println("Header -> current state: HIDE")
     }
 
     override fun onShowState() {
-        println("Header -> current state: show")
+        println("Header -> current state: SHOW")
     }
 }

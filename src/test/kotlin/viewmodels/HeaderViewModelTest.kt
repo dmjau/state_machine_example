@@ -10,11 +10,11 @@ class HeaderViewModelTest {
     @Test
     fun `Test HeaderViewModel create FSM OK`(){
         // given
-        val headerViewModel = HeaderViewModel()
         val initState = "show"
+        val headerViewModel = HeaderViewModel(initState)
 
         // when
-        headerViewModel.createHeaderFSM(initState)
+        headerViewModel.bind()
 
         // then
         assertNotNull(headerViewModel.headerFSM)
@@ -23,11 +23,11 @@ class HeaderViewModelTest {
     @Test
     fun `Test HeaderViewModel set init state OK`(){
         // given
-        val headerViewModel = HeaderViewModel()
         val initState = "show"
+        val headerViewModel = HeaderViewModel(initState)
 
         // when
-        headerViewModel.createHeaderFSM(initState)
+        headerViewModel.bind()
 
         // then
         assertTrue(headerViewModel.headerFSM?.currentState is OnShowState)
@@ -36,16 +36,16 @@ class HeaderViewModelTest {
     @Test
     fun `Test when HeaderViewModel call next state OK`(){
         // given
-        val headerViewModel = HeaderViewModel()
         val initState = "show"
+        val headerViewModel = HeaderViewModel(initState)
 
-        headerViewModel.createHeaderFSM(initState)
+        headerViewModel.bind()
 
         // check initial state
         assertTrue(headerViewModel.headerFSM?.currentState is OnShowState)
 
         // when
-        headerViewModel.runHeaderNextState()
+        headerViewModel.onClickEvent()
 
         // then
         assertTrue(headerViewModel.headerFSM?.currentState is OnHideState)
