@@ -8,6 +8,7 @@ import fsm.states.OnShowState
 class FiniteStateMachine(private val initialState: String?) {
 
     val statesComponentsRegisteredList: MutableList<StateComponent> = ArrayList()
+    val statesMachinesDependantList: MutableList<FiniteStateMachine> = ArrayList()
     var currentState: StateObject? = null
 
     /**
@@ -29,6 +30,13 @@ class FiniteStateMachine(private val initialState: String?) {
             ON_SHOW_STATE -> OnShowState()
             else -> null
         }
+
+        // Propagate initialization to dependant SM
+        statesMachinesDependantList.let { list ->
+            list.forEach {
+                it.setInitCurrentState()
+            }
+        }
     }
 
     /**
@@ -37,6 +45,13 @@ class FiniteStateMachine(private val initialState: String?) {
     private fun executeCurrentState() {
         // Execute the state
         currentState?.executeState(statesComponentsRegisteredList)
+
+        // Propagate state execution to dependant SM
+        statesMachinesDependantList.let { list ->
+            list.forEach {
+                it.executeCurrentState()
+            }
+        }
     }
 
     /**
@@ -47,12 +62,24 @@ class FiniteStateMachine(private val initialState: String?) {
     }
 
     /**
+     * Register states machines that will depend on this one to change states.
+     */
+    fun registerDependantStateMachine(dependantSM: FiniteStateMachine) {
+        statesMachinesDependantList.add(dependantSM)
+    }
+
+    /**
      * Sets and execute next state.
      */
     fun setNextState() {
         currentState?.let {
             currentState = currentState?.nextState()
             executeCurrentState()
+        }
+
+        // Propagate state change to dependant SM
+        statesMachinesDependantList.forEach {
+            it.setNextState()
         }
     }
 
@@ -61,6 +88,7 @@ class FiniteStateMachine(private val initialState: String?) {
      */
     fun clean() {
         statesComponentsRegisteredList.clear()
+        statesMachinesDependantList.clear()
     }
 
     companion object {

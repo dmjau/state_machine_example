@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="viewmodels.HeaderViewModelTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-06-30T20:01:36" hostname="AR0C02F61YQML85" time="0.025">
+  <properties/>
+  <testcase name="Test HeaderViewModel set init state OK()" classname="viewmodels.HeaderViewModelTest" time="0.021"/>
+  <testcase name="Test HeaderViewModel create FSM OK()" classname="viewmodels.HeaderViewModelTest" time="0.001"/>
+  <testcase name="Test when HeaderViewModel call next state OK()" classname="viewmodels.HeaderViewModelTest" time="0.001"/>
+  <system-out><![CDATA[Header -> current state: SHOW
+Header -> current state: SHOW
+Header -> current state: SHOW
+Header -> current state: HIDE
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
