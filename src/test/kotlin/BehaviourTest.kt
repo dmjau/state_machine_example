@@ -73,7 +73,9 @@ class BehaviourTest {
             headerViewModel.bind()
         }
 
-        // check initial state view
+        /**
+         * Check the initial view created by the initial state.
+         */
         assertEquals("Header -> current state: SHOW", output.trim())
 
         output = tapSystemOut {
@@ -81,7 +83,9 @@ class BehaviourTest {
             headerViewModel.onClickEvent()
         }
 
-        // check first change state
+        /**
+         * Check the view after change state.
+         */
         assertEquals("Header -> current state: HIDE", output.trim())
 
         output = tapSystemOut {
@@ -89,7 +93,9 @@ class BehaviourTest {
             headerViewModel.onClickEvent()
         }
 
-        // check second change state
+        /**
+         * Check the view after secondary change state.
+         */
         assertEquals("Header -> current state: SHOW", output.trim())
     }
 
@@ -161,7 +167,9 @@ class BehaviourTest {
 
         }
 
-        // check initial state view
+        /**
+         * Check the initial view created by the initial state.
+         */
         assertEquals("Footer -> current state: EXPANDED", output.trim())
 
         output = tapSystemOut {
@@ -169,7 +177,9 @@ class BehaviourTest {
             footerViewModel.onClickEvent()
         }
 
-        // check first change state
+        /**
+         * Check the view after change state.
+         */
         assertEquals("Footer -> current state: COLLAPSED", output.trim())
 
         output = tapSystemOut {
@@ -177,7 +187,9 @@ class BehaviourTest {
             footerViewModel.onClickEvent()
         }
 
-        // check second change state
+        /**
+         * Check the view after secondary change state.
+         */
         assertEquals("Footer -> current state: EXPANDED", output.trim())
     }
 }
